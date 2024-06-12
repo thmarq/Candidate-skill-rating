@@ -1,10 +1,14 @@
-import { Controller, Post, Body, Get, Param, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, HttpStatus, UseGuards } from '@nestjs/common';
 import { CreateQuestionDto } from '../dtos/create-question.dto';
 import { QuestionsService } from '../services/questions.service';
 import { AnswerQuestionDto } from '../dtos/answer-question.dto';
 import { Question } from '../entities/question.schema';
 import { Response } from '../entities/reponse.schema';
-
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
+import { AuthGuard } from '../../auth/guard/auth.guard';
+// @ApiBearerAuth()
+// @UseGuards(AuthGuard)
+@ApiTags('Questions & Responses')
 @Controller('questions')
 export class QuestionsController {
     constructor(

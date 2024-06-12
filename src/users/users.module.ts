@@ -7,7 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Entities } from './entities';
 
 @Module({
-  imports:[
+  imports: [
     MongooseModule.forFeature([...Entities])
   ],
   providers: [
@@ -15,6 +15,9 @@ import { Entities } from './entities';
   ],
   controllers: [
     ...controllers
+  ],
+  exports: [
+    ...services
   ]
 })
-export class UsersModule {}
+export class UsersModule { }

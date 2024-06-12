@@ -9,6 +9,7 @@ async function bootstrap() {
   .setTitle('Candidate Skill Rating')
   .setDescription(' API description')
   .setVersion('1.0')
+  .addBearerAuth()
   .build();
   
 const document = SwaggerModule.createDocument(app, config);
