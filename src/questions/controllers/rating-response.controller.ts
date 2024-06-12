@@ -1,7 +1,11 @@
 import { Controller, Post, Body, Get, Param, Patch } from '@nestjs/common';
 import { RateResponseDto } from '../dtos/rate-response.dto';
 import { RatingResponseService } from '../services/rating-response.service';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
+
+@ApiTags('Candidate rating')
+@ApiBearerAuth()
 @Controller('rating')
 export class RatingResponseController {
   constructor(private readonly ratingResponseService: RatingResponseService) { }

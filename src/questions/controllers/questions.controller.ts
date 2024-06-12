@@ -5,9 +5,7 @@ import { AnswerQuestionDto } from '../dtos/answer-question.dto';
 import { Question } from '../entities/question.schema';
 import { Response } from '../entities/reponse.schema';
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
-import { AuthGuard } from '../../auth/guard/auth.guard';
-// @ApiBearerAuth()
-// @UseGuards(AuthGuard)
+@ApiBearerAuth()
 @ApiTags('Questions & Responses')
 @Controller('questions')
 export class QuestionsController {
