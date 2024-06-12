@@ -30,10 +30,7 @@ export class QuestionsService {
 
 
   async answerQuestion(
-    // userId: string,
-    answerQuestionDto: AnswerQuestionDto)
-  // :Promise<Response> 
-  {
+    answerQuestionDto: AnswerQuestionDto) : Promise<Response> {
     const { questionId, userId, response } = answerQuestionDto;
     let question = await this.questionModel.findById(questionId)
     if (!question) {

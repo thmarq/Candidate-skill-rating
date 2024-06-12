@@ -1,23 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { RatingResponse, RatingResponseDocument } from '../entities/rating.schema';
 import { RateResponseDto } from '../dtos/rate-response.dto';
 import { Response } from '../entities/reponse.schema';
 
 @Injectable()
 export class RatingResponseService {
     constructor(
-        //1not neded
-        @InjectModel(RatingResponse.name) private ratingResponseModel: Model<RatingResponseDocument>,
         @InjectModel(Response.name) private responseModel: Model<Response>,
 
     ) { }
-
-    async create(rateResponseDto: RateResponseDto): Promise<RatingResponse> {
-        const createdRatingResponse = new this.ratingResponseModel(rateResponseDto);
-        return createdRatingResponse.save();
-    }
 
     async getAggregateSkillRating(skillId: number): Promise<any> {
         const responses = await this.responseModel.find({ skillId }).exec();
