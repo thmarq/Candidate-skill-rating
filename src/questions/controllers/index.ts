@@ -1,8 +1,4 @@
-import { QuestionsController } from "./questions.controller";
-import { RatingResponseController } from "./rating-response.controller";
+import { QuestionsController } from './questions.controller';
+import { RatingResponseController } from './rating-response.controller';
 
-export const controllers = [
-    QuestionsController,
-    RatingResponseController
-]
-
+export const controllers = [QuestionsController, RatingResponseController];

@@ -1,7 +1,4 @@
-import { QuestionsService } from "./questions.service";
-import { RatingResponseService } from "./rating-response.service";
+import { QuestionsService } from './questions.service';
+import { RatingResponseService } from './rating-response.service';
 
-export const services = [
-    QuestionsService,
-    RatingResponseService
-]
+export const services = [QuestionsService, RatingResponseService];

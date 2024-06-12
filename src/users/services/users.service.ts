@@ -8,16 +8,17 @@ import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UsersService {
-  constructor(
-    @InjectModel(User.name) private userModel: Model<User>,
-  ) { }
+  constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
     const { name, role, password } = createUserDto;
     const hashedPassword = await bcrypt.hash(password, 10);
-    return await this.userModel.create({ name, role, password: hashedPassword })
+    return await this.userModel.create({
+      name,
+      role,
+      password: hashedPassword,
+    });
   }
-
 
   async findAll(): Promise<User[]> {
     return this.userModel.find().exec();
@@ -32,11 +33,12 @@ export class UsersService {
   }
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
-    return this.userModel.findByIdAndUpdate(id, updateUserDto, { new: true }).exec();
+    return this.userModel
+      .findByIdAndUpdate(id, updateUserDto, { new: true })
+      .exec();
   }
 
   async remove(id: string): Promise<User> {
     return this.userModel.findByIdAndDelete(id).exec();
   }
-
 }

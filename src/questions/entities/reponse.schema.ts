@@ -9,7 +9,6 @@ enum DifficultyLevel {
 
 @Schema()
 export class Response extends Document {
-
   @Prop({ required: true })
   skillId: number;
 
