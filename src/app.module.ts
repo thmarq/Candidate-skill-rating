@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { QuestionsModule } from './questions/questions.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { GmailModule } from './gmail/gmail.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     QuestionsModule,
     AuthModule,
+    GmailModule,
   ],
   controllers: [AppController],
   providers: [AppService],
